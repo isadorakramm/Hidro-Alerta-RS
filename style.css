@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --azul-1: #3293d1;
+    --azul-2: #004aad;
+    --azul-3: #05244b;
+    --preto: #000;
+    --branco: #fff;
+    --branco-2: #f0f6ff;
+}
+@font-face {
+    font-family: 'berthold';
+    src: url('fontes/Block\ Berthold\ Regular.ttf');
+}
+header {
+    height: 50%;
+}
+header h1 {
+    color: var(--branco);
+    padding: 1%;
+    font-family: 'berthold';
+    background: rgb(50,147,208);
+    background: linear-gradient(90deg, rgba(50,147,208,1) 28%, rgba(0,74,173,1) 73%);
+}
+main {
+    width: 100%;
+}
