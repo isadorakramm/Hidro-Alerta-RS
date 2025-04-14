@@ -206,17 +206,16 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
 }
 
-main div {
-    width: 45%;
-    margin-left: 2%;
-    margin-top: 4%;
+.txt_geral {
+    width: 43%;
+    margin: 3.3%;
+    float: left;
 }
 
-main div h2 {
+.txt_geral h2 {
     display: flex;
     background-color: var(--azul-1);
     background: linear-gradient(90deg, var(--azul-1) 28%, var(--azul-2) 73%);
-    width:fit-content; 
     padding: 3px;
     padding-left: 15px;
     padding-right: 15px;
@@ -226,10 +225,87 @@ main div h2 {
     font-family: 'texto-2';
     font-size:large;
 }
-main div p {
+.txt_geral p {
     font-family: 'texto-2';
     color: var(--azul-3);
     text-align: justify;
     border-radius: 30px;
     padding: 1%;
 }
+
+/*CONTAINER*/
+
+.container {
+  position: relative;
+  float: left;
+  padding: 15px;
+  max-width: 45%;
+  margin: 0 auto;
+  margin-top: 2%;
+}
+
+.gallery-wrapper {
+  overflow-x: auto;
+}
+
+.arrow-left,
+.arrow-right {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: 0;
+  font-size: 20px;
+  line-height: 250px;
+  width: 40px;
+  color: #fff;
+  transition: all 600ms ease-in-out;
+  padding: 1%;
+  background: linear-gradient(to left, transparent 0%, var(--azul-2) 200%);
+  opacity: 0.1;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+  opacity: 1;
+}
+
+.arrow-right {
+  right: 0;
+  left: auto;
+  text-align: right;
+  padding: 1%;
+  background: linear-gradient(to right, transparent 0%, var(--azul-2) 200%);
+}
+
+.gallery {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 5px;
+}
+
+.item {
+  width: 100%;
+  height: auto;
+  flex-shrink: 0;
+  transition: all 600ms ease-in-out;
+  opacity: 0.5;
+  border-radius: 5px;
+}
+
+.current-item {
+  opacity: 1;
+}
+
+.gallery-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+.gallery-wrapper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+  
