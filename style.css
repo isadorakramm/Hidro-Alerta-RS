@@ -25,7 +25,7 @@
 
 /*BODY*/
 
-#inicio {
+.inicio {
     background-image: url(imagens/fundo.png);
     background-size: cover;
     background-position: center;
@@ -37,7 +37,7 @@
     margin: 0;
 }
 
-body {
+.info {
     background-color: var(--branco-2);
 }
 
@@ -173,12 +173,14 @@ main {
     cursor: pointer;
 }
 #txt_inicial a {
+    width: 1000px;  
+}
+.botao {
     font-family: 'texto-2';
     text-align: center;
     text-decoration: none;
     color: var(--branco);
-    padding: 8px 16px;
-    width: 1000px;    
+    padding: 8px 16px;  
     border-radius: 20px;
     background: var(--azul-1);
     background: linear-gradient(90deg, var(--azul-1) 28%, var(--azul-2) 73%);
@@ -187,7 +189,7 @@ main {
     z-index: 1;
 }
 
-#txt_inicial a::before {
+.botao::before {
     content: '';
     position: absolute;
     top: 0;
@@ -201,7 +203,7 @@ main {
     transition: opacity 0.3s ease;
 }
 
-#txt_inicial a:hover::before {
+.botao:hover::before {
     opacity: 5;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
 }
@@ -317,4 +319,54 @@ main {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-  
+
+/*FORMULARIO*/
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 40%;
+  margin: 35px auto;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.795);
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.formulario h2 {
+  font-family: 'texto-2';
+  color: var(--azul-3);
+  text-align: center;
+}
+
+.formulario label {
+  font-family: 'texto-2';
+  color: var(--azul-3);
+  font-size: 15px;
+}
+
+.formulario input {
+  font-family: 'texto-1';
+  font-size: 14px;
+  padding: 10px;
+  border: 1px solid var(--azul-2);
+  border-radius: 5px;
+  outline: none;
+}
+
+.formulario input:focus {
+  border-color: var(--azul-1);
+  box-shadow: 0 0 5px var(--azul-1);
+}
+
+.formulario button {
+  font-family: 'texto-2';
+  font-size: 16px;
+  padding: 10px 20px;
+  color: var(--branco);
+  background: linear-gradient(90deg, var(--azul-1) 28%, var(--azul-2) 73%);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
