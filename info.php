@@ -1,5 +1,10 @@
-
+<?php
+    $titulo = "Informações";
+    $corpo = "info";
+    include_once './include/header.php';
+?>
     <main>
+        <div class="section_bloco">
         <div class="txt_geral">
             <h2>
                 Entendendo o fenômeno natural
@@ -21,6 +26,7 @@
                     <img src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/Reuters_Direct_Media/BrazilOnlineReportDomesticNews/tagreuters.com2024binary_LYNXMPEK460OO-FILEDIMAGE.jpg?w=1024"></a>
                 </div>
             </div>
+        </div>
         </div>
         <div class="txt_geral">
             <h2>Possíveis causas</h2>
@@ -55,7 +61,11 @@
             <p>Antes disso, é interessante apresentar como funciona o modelo UNDRO (United Nations Disaster Relief Organization), que visa avaliar a situação de cada local em busca de gerenciar os desastres naturais de uma forma organizada em cinco etapas: Identificação de riscos; Análise de riscos; Medidas de prevenção; Planejamento para emergências; Informações públicas e treinamento. O modelo UNDRO oferece uma abordagem estruturada para a preparação e gestão de crises ambientais, permitindo lidar com as situações de forma mais tranquila.</p>
             <p>O modelo foi adaptado pela Defesa Civil Nacional (Brasília, 2007) e se compõe da seguinte forma:<br>1. Prevenção;<br>2. Preparação para Emergências e Desastres;<br>3. Resposta;<br>4. Resolução.</p>
         </div>
+        
     </main>
     <script src="script.js"></script>
+<?php
+    include_once './include/footer.php';
+?>
 </body>
 </html>

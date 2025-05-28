@@ -25,27 +25,35 @@
 
 /*BODY*/
 
-.inicio {
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+body.inicio {
     background-image: url(imagens/fundo.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    display: flex;
-    flex-direction: column;
     min-height: 111vh;
     margin: 0;
 }
 
-.info {
+body.info {
     background-color: var(--branco-2);
+    min-height: 600vh;
 }
 
 /*HEADER*/
 
-header {
-    height: 50%;
-}
+
 header h1 {
     color: var(--branco);
     padding: 1%;
@@ -100,7 +108,7 @@ header a {
 
 footer {
     background-color: var(--azul-1);
-    background: linear-gradient(0deg, var(--azul-1) 30%, rgba(255,255,255,0) 70%);
+    background: linear-gradient(0deg, var(--azul-1) 10%, rgba(255,255,255,0) 90%);
     height: 40px;
     margin-top: 20px;
     font-family: 'texto-1'; 
@@ -109,6 +117,7 @@ footer {
     text-align: center;
     padding-top: 80px;
     padding-bottom: 10px;
+    padding: 1rem;
 }
 footer a {
     text-decoration: none;
@@ -150,6 +159,19 @@ main {
     flex: 2;
 }
 
+.section_bloco {
+    display: flex;
+    flex-wrap: wrap; /* faz quebrar em duas linhas no mobile */
+    justify-content: space-between;
+    gap: 10px; /* espaço entre os blocos */
+    margin: 2%;
+}
+
+.txt_geral, .container {
+    width: 47%; /* quase metade, com espaço entre */
+    margin: 0; /* remova os floats e margens extras */
+    float: none;
+}
 
 #txt_inicial p {
     background-color:  rgba(255, 255, 255, 0.75);
@@ -208,11 +230,6 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
 }
 
-.txt_geral {
-    width: 45%;
-    margin: 2%;
-    float: left;
-}
 
 .txt_geral h2 {
     display: flex;
@@ -238,9 +255,7 @@ main {
 
 .container {
   position: relative;
-  float: left;
   padding: 15px;
-  max-width: 45%;
   margin: 0 auto;
   margin-top: 2%;
   margin-bottom: 3%;
@@ -369,4 +384,10 @@ main {
   border: none;
   border-radius: 20px;
   cursor: pointer;
+}
+
+.coordenadas {
+  display: flex;
+  gap: 10px;
+  width: 100%; /* Add this line */
 }
