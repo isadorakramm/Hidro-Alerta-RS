@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Início</title>
-</head>
-<body class="inicio">
-    <header>
-        <h1>Mini Estação Meteorológica</h1>
-        <nav>
-            <ul>
-              <li><a href="index.html">Página Inicial</a></li>
-              <li><a href="info.html">Informações</a></li>
-              <li><a href="formulario.html">Formulário</a></li>
-            </ul>
-        </nav>
-    </header>
+<?php
+    include_once './include/header.php';
+?>
     <main>
         <div id="txt_inicial">
             <p>As enchentes são desastres naturais frequentes que afetam cerca de 226 mil pessoas no Brasil – número que tende a aumentar com a urbanização. No Rio Grande do Sul, as enchentes de 2023 deixaram 28 mil desabrigados, 63 feridos e 5 mortos, superando as expectativas dos moradores.<br>
