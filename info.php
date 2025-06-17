@@ -1,8 +1,8 @@
 <?php
     $titulo = "Informações";
-    $corpo = "info";
     include_once './include/header.php';
 ?>
+<body class="info">
     <main>
         <div class="section_bloco">
         <div class="txt_geral">

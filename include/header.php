@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="style.css">
     <title><?php echo isset($titulo) ? $titulo : 'Estação Meteorologica'; ?></title>
 </head>
-<body class="<?php echo isset($corpo) ? $corpo : 'inicio'; ?>">
     <header>
         <h1>Mini Estação Meteorológica</h1>
         <nav>

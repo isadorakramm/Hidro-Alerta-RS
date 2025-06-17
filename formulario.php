@@ -2,6 +2,7 @@
     $titulo = "Formulário";
     include_once './include/header.php';
 ?>
+<body class="inicio">
     <main>
         <form class="formulario" id="sensorForm">
             <h2>Cadastre seu sensor!</h2>
