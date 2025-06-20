@@ -4,20 +4,22 @@
 ?>
 <body class="inicio">
     <main>
-        <form class="formulario" id="sensorForm">
+        <form class="formulario" id="sensorForm" action="salvar_sensor.php" method="post" novalidate>
             <h2>Cadastre seu sensor!</h2>
-            <label for="nome">Nome do sensor:</label>
-            <input type="text" id="nome" name="nome" placeholder="Nome" required>
+            
+            <label for="nome">
+                Nome do sensor:<input type="text" id="nome" name="nome" placeholder="Nome" required>
+            </label>
 
-        <label for="latitude">Localização:</label>
-        <div class="coordenadas">
-            <input type="number" id="latitude" name="latitude" placeholder="Latitude" step="0.000001" required>
-            <input type="number" id="longitude" name="longitude" placeholder="Longitude" step="0.000001" required>
-        </div>
+            <label for="latitude">Localização:</label>
+            <div class="coordenadas">
+                <input type="number" id="latitude" name="latitude" placeholder="Latitude" step="0.000001" required>
+                <input type="number" id="longitude" name="longitude" placeholder="Longitude" step="0.000001" required>
+            </div>
 
 
-            <button class="botao" type="submit">Enviar</button>
-        </form>
+                <button class="botao" type="submit">Enviar</button>
+            </form>
     </main>
         <script>
     document.getElementById("sensorForm").addEventListener("submit", function(e) {
