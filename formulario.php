@@ -13,8 +13,8 @@
 
             <label for="latitude">Localização:</label>
             <div class="coordenadas">
-                <input type="number" id="latitude" name="latitude" placeholder="Latitude" step="0.000001" required>
-                <input type="number" id="longitude" name="longitude" placeholder="Longitude" step="0.000001" required>
+                <input type="text" id="latitude" name="latitude" placeholder="Latitude" required>
+                <input type="text" id="longitude" name="longitude" placeholder="Longitude" required>
             </div>
 
 
