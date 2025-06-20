@@ -31,6 +31,7 @@ try {
 
     // Preparar e executar o INSERT
     $sql = "INSERT INTO sensores (nome, latitude, longitude) VALUES (?, ?, ?)";
+    echo "<p>Sensor inserido com sucesso!</p>";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$nome, $latitude, $longitude]);
 
