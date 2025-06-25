@@ -1,5 +1,9 @@
 <?php
-require_once 'config.php';  // Puxa as variáveis do config.php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+require_once 'config.php';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
@@ -10,12 +14,10 @@ $options = [
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 
-    // Receber os dados do formulário
     $nome = trim($_POST['nome'] ?? '');
     $latitude = trim($_POST['latitude'] ?? '');
     $longitude = trim($_POST['longitude'] ?? '');
 
-    // Validar dados básicos
     if ($nome === '' || $latitude === '' || $longitude === '') {
         throw new Exception("Todos os campos são obrigatórios.");
     }
@@ -29,9 +31,7 @@ try {
         throw new Exception("Latitude deve estar entre -90 e 90 e longitude entre -180 e 180.");
     }
 
-    // Preparar e executar o INSERT
     $sql = "INSERT INTO sensores (nome, latitude, longitude) VALUES (?, ?, ?)";
-    echo "<p>Sensor inserido com sucesso!</p>";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$nome, $latitude, $longitude]);
 
@@ -43,3 +43,4 @@ try {
     echo '<p><a href="formulario.php">Voltar</a></p>';
 }
 ?>
+
