@@ -4,7 +4,7 @@
 ?>
 <body class="inicio">
     <main>
-        <form class="formulario" id="sensorForm" action="./salvar/salvar_sensor.php" method="post" novalidate>
+        <form class="formulario" id="sensorForm" action="/Estacao-Meteorologica/salvar/salvar_sensor.php" method="post" novalidate>
             <h2>Cadastre seu sensor!</h2>
             
             <label for="nome">
