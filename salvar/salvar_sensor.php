@@ -35,8 +35,8 @@ try {
     $stmt = $pdo->prepare($sql);
     $stmt->execute([$nome, $latitude, $longitude]);
 
-    echo "<p>Sensor '$nome' cadastrado com sucesso!</p>";
-    echo '<p><a href="formulario.php">Cadastrar outro sensor</a></p>';
+    header("Location: ../formulario.php?sucesso=1");
+    exit();
 
 } catch (Exception $e) {
     echo "<p>Erro ao cadastrar sensor: " . htmlspecialchars($e->getMessage()) . "</p>";
