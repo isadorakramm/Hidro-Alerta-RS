@@ -46,18 +46,6 @@
             document.getElementById("sensorForm").submit();
         });
     </script>
-    <style>
-        .mensagem-sucesso {
-            background-color: var(--branco);
-            color: #3294d1ad;
-            font-family: 'texto-2';
-            margin-top: 20px;
-            padding: 10px;
-            border: 1px solid #c3d7e6;
-            border-radius: 5px;
-            width: 40%;
-        }
-    </style>
 </body>
 <?php
     include_once './include/footer.php';
