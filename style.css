@@ -392,10 +392,12 @@ main {
   width: 100%; /* Add this line */
 }
 .mensagem-sucesso {
-    background-color: #d4edda;
-    color: #155724;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #c3e6cb;
-    border-radius: 5px;
+  background-color: var(--branco);
+  color: #3294d1ad;
+  font-family: 'texto-2';
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #c3d7e6;
+  border-radius: 5px;
+  width: 40%;
 }

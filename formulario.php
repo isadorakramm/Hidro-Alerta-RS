@@ -4,11 +4,6 @@
 ?>
 <body class="inicio">
     <main>
-        <?php if (isset($_GET['sucesso']) && $_GET['sucesso'] == 1): ?>
-            <div class="mensagem-sucesso">
-            Sensor cadastrado com sucesso!
-            </div>
-        <?php endif; ?>
         <form class="formulario" id="sensorForm" action="/Estacao-Meteorologica/salvar/salvar_sensor.php" method="post" novalidate>
             <h2>Cadastre seu sensor!</h2>
             
@@ -26,6 +21,11 @@
                 <button class="botao" type="submit">Enviar</button>
             </form>
     </main>
+    <?php if (isset($_GET['sucesso']) && $_GET['sucesso'] == 1): ?>
+        <div class="mensagem-sucesso">
+        Sensor cadastrado com sucesso!
+        </div>
+    <?php endif; ?>
     <script>
         document.getElementById("sensorForm").addEventListener("submit", function(e) {
             e.preventDefault();
