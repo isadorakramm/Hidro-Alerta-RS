@@ -7,9 +7,8 @@
         <form class="formulario" id="sensorForm" action="/Estacao-Meteorologica/salvar/salvar_sensor.php" method="post" novalidate>
             <h2>Cadastre seu sensor!</h2>
             
-            <label for="nome">
-                Nome do sensor:<input type="text" id="nome" name="nome" placeholder="Nome" required>
-            </label>
+            <label for="nome">Nome do sensor:</label>
+            <input type="text" id="nome" name="nome" placeholder="Nome" required>
 
             <label for="latitude">Localização:</label>
             <div class="coordenadas">

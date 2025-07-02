@@ -47,8 +47,8 @@ body.inicio {
 }
 
 body.info {
-  background-color: var(--branco-2);
-  min-height: 600vh;
+  background: var(--branco-2);
+  height: auto;
 }
 
 /*HEADER*/
@@ -108,8 +108,8 @@ header a:hover::before {
 
 footer {
   background-color: var(--azul-1);
-  background: linear-gradient(0deg, var(--azul-1) 10%, rgba(255,255,255,0) 90%);
-  height: 40px;
+  background: linear-gradient(0deg, var(--azul-1) 20%, rgba(255,255,255,0) 80%);
+  height: 30px;
   margin-top: 20px;
   font-family: 'texto-1'; 
   color: var(--branco);
@@ -124,15 +124,9 @@ footer a {
   color: var(--branco);
   font-family: 'texto-1'; 
   font-size: small;
-}
 
-footer a {
-  color: var(--branco);
-  position: relative;
-  text-decoration: none;
 }
-  
-  footer a::before {
+footer a::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -168,9 +162,10 @@ main {
 }
 
 .txt_geral, .container {
-  width: 47%; /* quase metade, com espaço entre */
-  margin: 0; /* remova os floats e margens extras */
-  float: none;
+    width: 45%;
+    margin: 0;
+    float: left;
+    padding: 2%;; 
 }
 
 #txt_inicial p {
@@ -256,13 +251,9 @@ main {
 .container {
   position: relative;
   padding: 15px;
-  margin: 0 auto;
-  margin-top: 2%;
-  margin-bottom: 3%;
-}
-
-.gallery-wrapper {
-  overflow-x: auto;
+  margin: 2% auto 3%;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 .arrow-left,
@@ -298,19 +289,29 @@ main {
   background: linear-gradient(to right, transparent 0%, var(--azul-2) 200%);
 }
 
+
+.gallery-wrapper {
+  overflow-x: hidden; /* Impede rolagem manual */
+  width: 100%;
+}
+
 .gallery {
   display: flex;
-  flex-flow: row nowrap;
-  gap: 5px;
+  flex-wrap: nowrap;
+  transition: transform 0.5s ease-in-out;
 }
 
 .gallery a.item {
-  width: 100%;
-  height:max-content;
+  position: relative;
+  min-width: 100%;
+  height: auto;
   flex-shrink: 0;
-  transition: all 600ms ease-in-out;
   opacity: 0.5;
+  transition: opacity 0.6s ease-in-out;
   border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .gallery a.current-item {
@@ -319,21 +320,63 @@ main {
 
 .gallery a.item img {
   width: 100%;
-  height: auto;
-  max-height: 300px;
+  height: 300px; /* Altura padronizada */
   object-fit: cover;
-  display: block;
   border-radius: 5px;
+  display: block;
 }
 
-.gallery-wrapper::-webkit-scrollbar {
-  display: none;
+.caption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  background-color: #05244ba4;
+  /*background: linear-gradient(90deg, var(--azul-1) 28%, var(--azul-2) 73%);*/
+  color: #fff;
+  font-family: 'texto-2';
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 500;
 }
 
-.gallery-wrapper {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .gallery a.item img {
+    width: 100%;
+    height: 300px; /* Altura da moldura */
+    object-fit: contain; /* NÃO distorce a imagem */
+    background-color: #f0f0f0; /* Cor de fundo da moldura */
+    border-radius: 5px;
+    display: block;
+  }
+
+  .caption {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .arrow-left,
+  .arrow-right {
+    font-size: 20px;
+    width: 35px;
+    height: 35px;
+  }
 }
+
+@media (max-width: 480px) {
+  .gallery a.item img {
+    height: 180px;
+  }
+
+  .caption {
+    font-size: 11px;
+    padding: 6px;
+  }
+}
+
 
 /*FORMULARIO*/
 

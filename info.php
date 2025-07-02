@@ -17,13 +17,19 @@
             <div class="gallery-wrapper">
                 <div class="gallery">
                     <a href="https://abrasco.org.br/enchentes-no-rio-grande-do-sul-desafios-para-a-saude-publica-em-meio-a-catastrofe/" target="_blank" class="item current-item">
-                    <img src="https://abrasco.org.br/wp-content/uploads/2024/05/Rio_Grande_do_sul_Crise_enchente-scaled.jpg"></a>
+                        <img src="imagens/1.png" alt="Imagem da notícia">
+                        <div class="caption">Desafios para a saúde pública em meio à catástrofe</div>
+                    </a>
 
-                    <a href="https://www.brasildefato.com.br/2024/05/16/enchentes-ja-impactam-461-dos-497-municipios-do-rio-grande-do-sul/" target="_blank" class="item current-item">
-                    <img src="https://assets.brasildefato.com.br/2024/09/image_processing20240516-4192498-8vhdac-750x450.webp"></a>
+                    <a href="https://www.brasildefato.com.br/2024/05/16/enchentes-ja-impactam-461-dos-497-municipios-do-rio-grande-do-sul/" target="_blank" class="item">
+                        <img src="imagens/3.png" alt="Imagem da notícia">
+                        <div class="caption">Enchentes já impactam 461 dos 497 municípios do RS</div>
+                    </a>
 
-                    <a href="https://www.cnnbrasil.com.br/nacional/entenda-como-enchentes-no-rio-grande-do-sul-e-seca-no-pantanal-podem-estar-relacionadas/" target="_blank" class="item current-item">
-                    <img src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/Reuters_Direct_Media/BrazilOnlineReportDomesticNews/tagreuters.com2024binary_LYNXMPEK460OO-FILEDIMAGE.jpg?w=1024"></a>
+                    <a href="https://www.correiodopovo.com.br/notícias/cidades/imagens-de-satélite-mostram-dimensões-das-enchentes-de-junho-de-2025-no-rs-1.1623141" target="_blank" class="item">
+                        <img src="imagens/2.png" alt="Imagem da notícia">
+                        <div class="caption">Imagens de satélite mostram enchentes de junho de 2025 no RS</div>
+                    </a>
                 </div>
             </div>
         </div>
