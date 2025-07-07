@@ -435,6 +435,6 @@ main {
   width: 100%; /* Add this line */
 }
 
-canvas {
+.grafico {
   background-color: var(--branco);
 }

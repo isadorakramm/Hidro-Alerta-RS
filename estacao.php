@@ -7,8 +7,10 @@
 
     <h1 style="text-align: center;">Gráfico de Medições - Sensor 1</h1>
 
-    <!-- Área onde o gráfico vai aparecer -->
-    <canvas id="graficoSensor1" width="800" height="400"></canvas>
+    <div class="grafico">
+        <!-- Área onde o gráfico vai aparecer -->
+        <canvas id="graficoSensor1" width="800" height="400"></canvas>
+    </div>
 
 </main>
 
