@@ -4,28 +4,44 @@
 ?>
 
 <main style="padding: 2rem; max-width: 900px; margin: auto;">
-
-    <h1 style="text-align: center;">Gráfico de Medições - Sensor 1</h1>
-
-    <div class="grafico">
-        <!-- Área onde o gráfico vai aparecer -->
-        <canvas id="graficoSensor1" width="800" height="400"></canvas>
-    </div>
-
+    <h1 style="text-align: center;">Gráficos de Medições</h1>
+    <div id="graficosContainer"></div>
 </main>
 
-<!-- Importa o Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-window.onload = function () {
-    fetch("http://estacao:1880/dados/sensor/1")
-        .then(response => response.json())
-        .then(data => {
-            const labels = data.map(d => new Date(d.timestamp_medicao).toLocaleString('pt-BR'));
-            const valores = data.map(d => parseFloat(d.medicao));
+window.onload = async function () {
+    const container = document.getElementById("graficosContainer");
 
-            new Chart(document.getElementById('graficoSensor1'), {
+    try {
+        // 1. Pega a lista de sensores
+        const respostaSensores = await fetch("http://estacao:1880/dados/sensores");
+        const sensores = await respostaSensores.json();
+
+        for (const sensor of sensores) {
+            const id = sensor.id;
+
+            // 2. Cria elementos HTML para cada gráfico
+            const titulo = document.createElement("h2");
+            titulo.innerText = `Sensor ${id}`;
+            container.appendChild(titulo);
+
+            const canvas = document.createElement("canvas");
+            canvas.id = `graficoSensor${id}`;
+            canvas.width = 800;
+            canvas.height = 400;
+            container.appendChild(canvas);
+
+            // 3. Busca os dados do sensor individualmente
+            const respostaDados = await fetch(`http://estacao:1880/dados/sensor/${id}`);
+            const dados = await respostaDados.json();
+
+            const labels = dados.map(d => new Date(d.timestamp_medicao).toLocaleString('pt-BR'));
+            const valores = dados.map(d => parseFloat(d.medicao));
+
+            // 4. Monta o gráfico Chart.js
+            new Chart(canvas, {
                 type: 'line',
                 data: {
                     labels: labels,
@@ -42,28 +58,22 @@ window.onload = function () {
                     responsive: true,
                     scales: {
                         x: {
-                            title: {
-                                display: true,
-                                text: 'Horário da Medição'
-                            }
+                            title: { display: true, text: 'Horário da Medição' }
                         },
                         y: {
-                            title: {
-                                display: true,
-                                text: 'Altura da água (m)'
-                            },
+                            title: { display: true, text: 'Altura da água (m)' },
                             beginAtZero: true
                         }
                     }
                 }
             });
-        })
-        .catch(err => {
-            console.error("Erro ao carregar dados do sensor:", err);
-        });
+        }
+    } catch (err) {
+        console.error("Erro ao carregar sensores ou medições:", err);
+        container.innerHTML = "<p>Erro ao carregar gráficos.</p>";
+    }
 };
 </script>
-
 
 <?php
     include_once './include/footer.php';

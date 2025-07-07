@@ -434,7 +434,3 @@ main {
   gap: 10px;
   width: 100%; /* Add this line */
 }
-
-.grafico {
-  background-color: var(--branco);
-}
