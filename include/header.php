@@ -1,14 +1,15 @@
 <?php
-$atualizado = date('YmdHis').rand(0,99999)
+$atualizado = date('YmdHis') . rand(0, 99999);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css?t=<?php echo $atualizado;?>">
-    <title><?php echo isset($titulo) ? $titulo : 'Estação Meteorologica'; ?></title>
+    <link rel="stylesheet" href="style.css?t=<?php echo $atualizado; ?>">
+    <title><?php echo isset($titulo) ? $titulo : 'Estação Meteorológica'; ?></title>
 </head>
+<body class="inicio">
     <header>
         <h1>Mini Estação Meteorológica</h1>
         <nav>
