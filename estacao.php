@@ -1,6 +1,9 @@
 <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    
     $titulo = "Estação Meteorológica";
-    //include_once './include/header.php';
+    include_once './include/header.php';
 ?>
 <body class="inicio">
     <main style="padding: 2rem; max-width: 900px; margin: auto;">
@@ -64,5 +67,5 @@
 
 </body>
 <?php
-    //include_once './include/footer.php';
+    include_once './include/footer.php';
 ?>
