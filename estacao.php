@@ -31,7 +31,7 @@ window.onload = async function () {
         const sensoresLocalizacao = await respLocalizacao.json();
 
         sensoresLocalizacao.forEach(sensor => {
-            const marker = L.marker([sensor.lat, sensor.lon]).addTo(mapa);
+            const marker = L.marker([sensor.latitude, sensor.longitude]).addTo(mapa);
             marker.bindPopup(`<strong>${sensor.nome || 'Sensor ' + sensor.id}</strong><br>ID: ${sensor.id}`);
         });
     } catch (erro) {
