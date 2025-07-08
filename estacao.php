@@ -5,13 +5,43 @@
 
 <main style="padding: 2rem; max-width: 900px; margin: auto;">
     <h1 style="text-align: center;">Gráficos de Medições</h1>
+    <h1 style="text-align: center;">Localização dos Sensores</h1>
+    <div id="mapaSensores" style="height: 400px; width: 100%; margin-bottom: 2rem; border-radius: 1rem;"></div>
     <div id="graficosContainer"></div>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 window.onload = async function () {
+
+    // MAPA
+
+    const mapa = L.map('mapaSensores').setView([-30.0346, -51.2177], 12); // Centro POA
+
+    // Adiciona o mapa base
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap'
+    }).addTo(mapa);
+
+    // Pega as localizações dos sensores
+    try {
+        const respLocalizacao = await fetch(`http://${window.location.hostname}:1880/dados/localizacao`);
+        const sensoresLocalizacao = await respLocalizacao.json();
+
+        sensoresLocalizacao.forEach(sensor => {
+            const marker = L.marker([sensor.lat, sensor.lon]).addTo(mapa);
+            marker.bindPopup(`<strong>${sensor.nome || 'Sensor ' + sensor.id}</strong><br>ID: ${sensor.id}`);
+        });
+    } catch (erro) {
+        console.error("Erro ao carregar localização dos sensores:", erro);
+    }
+
+    // GRAFICOS
+
     const container = document.getElementById("graficosContainer");
 
     try {
