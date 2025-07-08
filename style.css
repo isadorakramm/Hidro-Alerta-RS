@@ -155,9 +155,9 @@ main {
 
 .section_bloco {
   display: flex;
-  flex-wrap: wrap; /* faz quebrar em duas linhas no mobile */
+  flex-wrap: wrap; 
   justify-content: space-between;
-  gap: 10px; /* espaço entre os blocos */
+  gap: 10px; 
   margin: 2%;
 }
 
@@ -433,4 +433,29 @@ main {
   display: flex;
   gap: 10px;
   width: 100%; /* Add this line */
+}
+
+.estacao-main {
+  padding: 2rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.estacao-main h1 {
+  text-align: center;
+  background-color: var(--azul-1);
+  background: linear-gradient(90deg, var(--azul-1) 28%, var(--azul-2) 73%);
+  padding: 1%;
+  margin: 2%;
+  border-radius: 20px;
+  color: var(--branco);
+  font-family: 'texto-2';
+  font-size:x-large;
+}
+
+#mapaSensores {
+  height: 400px;
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
 }
