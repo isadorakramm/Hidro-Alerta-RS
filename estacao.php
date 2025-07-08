@@ -3,7 +3,7 @@
     include_once './include/header.php';
 ?>
 
-<main style="padding: 2rem; margin: auto;">
+<main style="padding: 2rem; max-width: 900px; margin: auto;">
     <h1 style="text-align: center;">Gráficos de Medições</h1>
     <div id="graficosContainer"></div>
 </main>
