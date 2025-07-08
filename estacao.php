@@ -13,7 +13,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-
+const apiHost = window.location.hostname;
 window.onload = async function () {
 
     // MAPA
@@ -44,7 +44,6 @@ window.onload = async function () {
 
     try {
         // 1. Pega a lista de sensores
-        const apiHost = window.location.hostname;
         const respostaSensores = await fetch(`http://${apiHost}:1880/dados/sensores`);
         const sensores = await respostaSensores.json();
 
