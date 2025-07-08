@@ -16,7 +16,8 @@ window.onload = async function () {
 
     try {
         // 1. Pega a lista de sensores
-        const respostaSensores = await fetch("http://estacao:1880/dados/sensores");
+        const apiHost = window.location.hostname;
+        const respostaSensores = await fetch(`http://${apiHost}:1880/dados/sensores`);
         const sensores = await respostaSensores.json();
 
         for (const sensor of sensores) {
@@ -34,7 +35,7 @@ window.onload = async function () {
             container.appendChild(canvas);
 
             // 3. Busca os dados do sensor individualmente
-            const respostaDados = await fetch(`http://estacao:1880/dados/sensor/${id}`);
+            const respostaDados = await fetch(`http://${apiHost}:1880/dados/sensor/${id}`);
             const dados = await respostaDados.json();
 
             const labels = dados.map(d => new Date(d.timestamp_medicao).toLocaleString('pt-BR'));
