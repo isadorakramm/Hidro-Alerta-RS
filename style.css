@@ -448,3 +448,7 @@ article p {
   margin-bottom: 2rem;
   border-radius: 1rem;
 }
+
+#graficosContainer {
+  background-color: white;
+}
