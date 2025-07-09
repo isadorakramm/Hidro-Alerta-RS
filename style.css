@@ -426,7 +426,7 @@ article p {
 
 .estacao-main {
   padding: 2rem;
-  max-width: 900px;
+  max-width: 100px;
   margin: auto;
 }
 
@@ -451,6 +451,6 @@ article p {
 
 #graficosContainer {
   padding: 3%;
-  background-color: rgba(255, 255, 255, 0.715);
+  background-color: rgba(255, 255, 255, 0.902);
   border-radius: 20px;
 }
