@@ -34,6 +34,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 body.inicio {
@@ -126,43 +127,30 @@ footer a {
   font-size: small;
 
 }
-footer a::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  border-radius: 4px;
-  background-color: var(--branco);
-  bottom: 0;
-  left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform .3s ease-in-out;
-}
-  
-footer a:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
-}
-
-/*MAIN*/
 
 main {
   width: 100%;
-  height: 480px;
   flex: 2;
 }
 
 .section_bloco {
   display: flex;
-  flex-wrap: wrap; /* faz quebrar em duas linhas no mobile */
-  justify-content: space-between;
-  gap: 10px; /* espaço entre os blocos */
-  margin: 2%;
+  justify-content: center;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.txt_geral, .container {
-    width: 45%;
+.textoInfo {
+  width: 35%;
+}
+.textoInfo p {
+  background-color: rgba(255, 255, 255, 0.566);
+  border-radius: 20px;
+  padding: 4%;
+  margin: 1%;
+}
+
+.textoInfo, .container {
     margin: 0;
     float: left;
     padding: 2%;; 
@@ -221,34 +209,40 @@ main {
 }
 
 .botao:hover::before {
-  opacity: 5;
+  opacity: 1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
 }
 
+.bolhas {
+  background-color: rgba(255, 255, 255, 0.566);
+  border-radius: 20px;
+}
 
-.txt_geral h2 {
+article h2 {
   display: flex;
   background-color: var(--azul-1);
   background: linear-gradient(90deg, var(--azul-1) 28%, var(--azul-2) 73%);
-  padding: 3px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 3px 15px;  
   margin-bottom: 1%;
   border-radius: 20px;
   color: var(--branco);
   font-family: 'texto-2';
-  font-size:large;
+  font-size:larger;
 }
-.txt_geral p {
+article p {
   font-family: 'texto-2';
+  font-size: large;
   color: var(--azul-3);
   text-align: justify;
   padding: 1%;
+  margin: 1%;
 }
 
 /*CARROSSEL*/
 
 .container {
+  height: 300px;
+  width: 55%; 
   position: relative;
   padding: 15px;
   margin: 2% auto 3%;
@@ -346,7 +340,7 @@ main {
 @media (max-width: 768px) {
   .gallery a.item img {
     width: 100%;
-    height: 300px; /* Altura da moldura */
+    height: 100%; /* Altura da moldura */
     object-fit: contain; /* NÃO distorce a imagem */
     background-color: #f0f0f0; /* Cor de fundo da moldura */
     border-radius: 5px;
@@ -418,7 +412,7 @@ main {
   box-shadow: 0 0 5px var(--azul-1);
 }
 
-.formulario button {
+.formulario button {  
   font-family: 'texto-2';
   font-size: 16px;
   padding: 10px 20px;
