@@ -427,6 +427,7 @@ article p {
 .estacao-main {
   padding: 2rem;
   max-width: 1000px;
+  font-family: 'texto-2';
   margin: auto;
 }
 
@@ -438,7 +439,6 @@ article p {
   margin: 2%;
   border-radius: 20px;
   color: var(--branco);
-  font-family: 'texto-2';
   font-size:x-large;
 }
 
