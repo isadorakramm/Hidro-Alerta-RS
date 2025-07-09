@@ -52,7 +52,8 @@ window.onload = async function () {
 
             // criando elementos HTML para cada gráfico
             const titulo = document.createElement("h2");
-            titulo.innerText = `Sensor ${id}`;
+            titulo.innerText = sensor.nome || `Sensor ${id}`;
+
             container.appendChild(titulo);
 
             const canvas = document.createElement("canvas");
