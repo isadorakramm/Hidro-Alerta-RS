@@ -450,7 +450,8 @@ article p {
 }
 
 #graficosContainer {
-  background-color: white;
-  padding: 5%;
-  margin: 5%;
+  padding: 4%;
+  margin: 10%;
+  background-color: rgba(255, 255, 255, 0.566);
+  border-radius: 20px;
 }
