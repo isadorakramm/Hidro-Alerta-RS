@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once '../config.php'; // cuidado com o caminho aqui!
+require_once 'config.php'; // cuidado com o caminho aqui!
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $options = [
