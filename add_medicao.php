@@ -22,45 +22,31 @@ include_once './include/header.php';
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.1.0/mqttws31.min.js"></script>
 <script>
-const status = document.getElementById("status");
-
-// Conectar ao broker HiveMQ via WebSocket
-const client = new Paho.MQTT.Client("broker.hivemq.com", 8000, "clientId_" + parseInt(Math.random() * 10000));
-
-client.connect({
-  onSuccess: () => status.innerText = "Conectado ao broker MQTT!",
-  onFailure: () => status.innerText = "Erro ao conectar ao broker MQTT."
-});
-
-// Carrega os sensores na dropdown
 window.onload = async () => {
-  const resp = await fetch("/dados/sensores");
-  const sensores = await resp.json();
   const select = document.getElementById("sensor");
 
-  sensores.forEach(s => {
-    const nome = s.nome || `Sensor ${s.id}`;
-    const option = document.createElement("option");
-    option.value = s.id;
-    option.innerText = nome;
-    select.appendChild(option);
-  });
-};
+  try {
+    const resp = await fetch("http://" + window.location.hostname + ":1880/dados/sensores");
+    const sensores = await resp.json();
 
-// Quando o formulário for enviado
-document.getElementById("formMedicao").onsubmit = function (e) {
-  e.preventDefault();
+    console.log("Sensores carregados:", sensores); // ← pra verificar no console
 
-  const sensorId = parseInt(document.getElementById("sensor").value);
-  const medicao = parseFloat(document.getElementById("medicao").value);
+    sensores.forEach(s => {
+      const option = document.createElement("option");
+      option.value = s.id;
+      option.textContent = s.nome || `Sensor ${s.id}`;
+      select.appendChild(option);
+    });
 
-  const payload = JSON.stringify({ sensor_id: sensorId, medicao: medicao });
-  const message = new Paho.MQTT.Message(payload);
-  message.destinationName = "isadora";
-
-  client.send(message);
-  status.innerText = "Medição enviada via MQTT!";
+    if (sensores.length === 0) {
+      select.innerHTML = "<option>Nenhum sensor disponível</option>";
+    }
+  } catch (err) {
+    console.error("Erro ao carregar sensores:", err);
+    select.innerHTML = "<option>Erro ao carregar sensores</option>";
+  }
 };
 </script>
+
 
 <?php include_once './include/footer.php'; ?>
