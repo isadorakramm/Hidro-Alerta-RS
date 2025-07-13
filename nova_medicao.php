@@ -1,34 +1,48 @@
 <?php
 $titulo = "Nova Medição";
 include_once './include/header.php';
-require_once 'config.php'; // <-- Aqui está a mudança
+require_once 'config.php';
 
-$conn = new mysqli($host, $user, $pass, $db);
-if ($conn->connect_error) {
-    die("Erro de conexão: " . $conn->connect_error);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+];
+
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
+    $stmt = $pdo->query("SELECT id, nome FROM sensores");
+    $sensores = $stmt->fetchAll();
+} catch (Exception $e) {
+    die("Erro ao carregar sensores: " . htmlspecialchars($e->getMessage()));
 }
 ?>
 
-<main style="max-width: 600px; margin: auto; padding: 2rem;">
-  <h1>Adicionar Nova Medição</h1>
-  <form action="salvar_medicao.php" method="post">
-    <label for="sensor_id">Sensor:</label>
-    <select name="sensor_id" id="sensor_id" required>
-      <?php
-      $result = $conn->query("SELECT id, nome FROM sensores");
-      while ($row = $result->fetch_assoc()) {
-        $nome = $row['nome'] ?: "Sensor " . $row['id'];
-        echo "<option value='{$row['id']}'>{$nome}</option>";
-      }
-      $conn->close();
-      ?>
-    </select><br><br>
+<body class="inicio">
+<main>
+    <form class="formulario" action="/Estacao-Meteorologica/salvar/salvar_medicao.php" method="post" novalidate>
+        <h2>Adicionar Nova Medição</h2>
 
-    <label for="medicao">Valor da Medição (em metros):</label>
-    <input type="number" name="medicao" id="medicao" step="0.01" required><br><br>
+        <label for="sensor_id">Sensor:</label>
+        <select name="sensor_id" id="sensor_id" required>
+            <option value="">Selecione um sensor</option>
+            <?php foreach ($sensores as $sensor): ?>
+                <option value="<?= $sensor['id'] ?>">
+                    <?= htmlspecialchars($sensor['nome']) ?: 'Sensor ' . $sensor['id'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
 
-    <button type="submit">Salvar Medição</button>
-  </form>
+        <label for="medicao">Valor da Medição (em metros):</label>
+        <input type="number" name="medicao" id="medicao" step="0.01" required>
+
+        <button class="botao" type="submit">Salvar Medição</button>
+    </form>
 </main>
+</body>
 
 <?php include_once './include/footer.php'; ?>

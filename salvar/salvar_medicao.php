@@ -1,30 +1,36 @@
 <?php
-error_reporting(E_ALL);
 ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  require_once 'config.php'; // <-- Aqui também
+require_once '../config.php'; // cuidado com o caminho aqui!
 
-  $sensor_id = $_POST['sensor_id'];
-  $medicao = $_POST['medicao'];
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+];
 
-  $conn = new mysqli($host, $user, $pass, $db);
-  if ($conn->connect_error) {
-    die("Erro de conexão: " . $conn->connect_error);
-  }
+try {
+    $pdo = new PDO($dsn, $user, $pass, $options);
 
-  $stmt = $conn->prepare("INSERT INTO medicoes (sensor_id, medicao, timestamp_medicao) VALUES (?, ?, NOW())");
-  $stmt->bind_param("id", $sensor_id, $medicao);
+    $sensor_id = intval($_POST['sensor_id'] ?? 0);
+    $medicao = floatval($_POST['medicao'] ?? 0);
 
-  if ($stmt->execute()) {
-    echo "Medição salva com sucesso!";
-    echo "<br><a href='nova_medicao.php'>Voltar</a>";
-  } else {
-    echo "Erro ao salvar: " . $stmt->error;
-  }
+    if ($sensor_id <= 0 || $medicao <= 0) {
+        throw new Exception("Preencha todos os campos corretamente.");
+    }
 
-  $stmt->close();
-  $conn->close();
+    $sql = "INSERT INTO medicoes (sensor_id, medicao, timestamp_medicao) VALUES (?, ?, NOW())";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$sensor_id, $medicao]);
+
+    header("Location: ../nova_medicao.php?sucesso=1");
+    exit();
+
+} catch (Exception $e) {
+    echo "<p>Erro ao salvar medição: " . htmlspecialchars($e->getMessage()) . "</p>";
+    echo '<p><a href="../nova_medicao.php">Voltar</a></p>';
 }
 ?>
 
