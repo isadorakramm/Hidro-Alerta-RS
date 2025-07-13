@@ -387,6 +387,12 @@ article p {
   text-align: center;
 }
 
+.formulario p {
+  font-family: 'texto-1';
+  color: var(--azul-3);
+  text-align: center;
+}
+
 .formulario label {
   font-family: 'texto-2';
   color: var(--azul-3);
