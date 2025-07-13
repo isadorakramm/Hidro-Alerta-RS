@@ -15,10 +15,14 @@
                 <input type="text" id="latitude" name="latitude" placeholder="Latitude" required>
                 <input type="text" id="longitude" name="longitude" placeholder="Longitude" required>
             </div>
+            <button class="botao" type="submit">Enviar</button>
+        </form>
 
+        <div class="formulario">
+            <p>Já possui um sensor? Adicione uma nova medição manualmente!</p>
+            <a class="botao" href="nova_medicao.php">Adiconar nova medição</a>
+        </div>
 
-                <button class="botao" type="submit">Enviar</button>
-            </form>
     </main>
     <?php if (isset($_GET['sucesso']) && $_GET['sucesso'] == 1): ?>
         <div class="mensagem-sucesso">
