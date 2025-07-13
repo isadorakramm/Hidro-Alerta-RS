@@ -21,7 +21,6 @@ $atualizado = date('YmdHis') . rand(0, 99999);
         <nav>
             <ul>
                 <li><a href="index.php">Página Inicial</a></li>
-                <li><a href="info.php">Informações</a></li>
                 <li><a href="formulario.php">Formulário</a></li>
                 <li><a href="estacao.php">Estação</a></li>
             </ul>
