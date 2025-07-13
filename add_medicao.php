@@ -30,6 +30,8 @@ window.onload = async () => {
     const sensores = await resp.json();
 
     console.log("Sensores carregados:", sensores); // ← pra verificar no console
+    
+    select.innerHTML = ""; // limpa "Carregando..."
 
     sensores.forEach(s => {
       const option = document.createElement("option");
