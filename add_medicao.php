@@ -3,6 +3,12 @@ $titulo = "Nova Medição";
 include_once './include/header.php';
 ?>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.1.0/mqttws31.min.js"></script>
+<script>
+  console.log('Paho MQTT:', typeof Paho !== 'undefined' ? 'Carregado' : 'Não carregado');
+</script>
+
+
 <main style="max-width: 600px; margin: auto; padding: 2rem;">
   <h1>Adicionar Nova Medição</h1>
 
@@ -22,9 +28,6 @@ include_once './include/header.php';
 
   <p id="status" style="margin-top: 1rem; font-weight: bold;"></p>
 </main>
-
-<!-- Biblioteca Paho MQTT -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.1.0/mqttws31.min.js"></script>
 
 <script>
 window.addEventListener("DOMContentLoaded", async () => {
