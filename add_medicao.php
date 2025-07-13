@@ -21,6 +21,7 @@ include_once './include/header.php';
 </main>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.1.0/mqttws31.min.js"></script>
+
 <script>
 window.onload = async () => {
   const select = document.getElementById("sensor");
@@ -50,9 +51,12 @@ window.onload = async () => {
 };
 </script>
 
+<!-- Biblioteca Paho (precisa estar carregada ANTES do uso) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.1.0/mqttws31.min.js"></script>
+
 <script>
 document.getElementById("formMedicao").addEventListener("submit", function (e) {
-  e.preventDefault(); // evita recarregar a página
+  e.preventDefault();
 
   const sensorId = document.getElementById("sensor").value;
   const medicao = document.getElementById("medicao").value;
@@ -63,8 +67,8 @@ document.getElementById("formMedicao").addEventListener("submit", function (e) {
     return;
   }
 
-  // Conecta ao broker MQTT via WebSocket
-  const client = new Paho.MQTT.Client("broker.hivemq.com", 8000, "cliente_" + parseInt(Math.random() * 10000));
+  const client = new Paho.MQTT.Client("broker.hivemq.com", 8000, "cliente_" + Math.random());
+
   client.connect({
     onSuccess: () => {
       const payload = JSON.stringify({
@@ -73,7 +77,7 @@ document.getElementById("formMedicao").addEventListener("submit", function (e) {
       });
 
       const message = new Paho.MQTT.Message(payload);
-      message.destinationName = "isadora"; // mesmo tópico que o Node-RED escuta
+      message.destinationName = "isadora"; // mesmo tópico usado no Node-RED
       client.send(message);
 
       status.textContent = "Medição enviada com sucesso!";
@@ -84,6 +88,7 @@ document.getElementById("formMedicao").addEventListener("submit", function (e) {
   });
 });
 </script>
+
 
 
 <?php include_once './include/footer.php'; ?>
