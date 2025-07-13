@@ -1,7 +1,7 @@
 <?php
 $titulo = "Nova Medição";
 include_once './include/header.php';
-require_once 'salvar\config.php';
+require_once 'salvar/config.php';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
