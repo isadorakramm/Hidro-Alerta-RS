@@ -19,7 +19,7 @@
         </form>
 
         <div class="formulario">
-            <p>Já possui um sensor? Adicione uma nova medição manualmente!</p>
+            <h2>Já possui um sensor? Adicione uma nova medição manualmente!</h2>
             <a class="botao" href="nova_medicao.php">Adiconar nova medição</a>
         </div>
 
