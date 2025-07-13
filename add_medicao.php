@@ -50,5 +50,40 @@ window.onload = async () => {
 };
 </script>
 
+<script>
+document.getElementById("formMedicao").addEventListener("submit", function (e) {
+  e.preventDefault(); // evita recarregar a página
+
+  const sensorId = document.getElementById("sensor").value;
+  const medicao = document.getElementById("medicao").value;
+  const status = document.getElementById("status");
+
+  if (!sensorId || !medicao) {
+    status.textContent = "Preencha todos os campos.";
+    return;
+  }
+
+  // Conecta ao broker MQTT via WebSocket
+  const client = new Paho.MQTT.Client("broker.hivemq.com", 8000, "cliente_" + parseInt(Math.random() * 10000));
+  client.connect({
+    onSuccess: () => {
+      const payload = JSON.stringify({
+        sensor_id: parseInt(sensorId),
+        medicao: parseFloat(medicao)
+      });
+
+      const message = new Paho.MQTT.Message(payload);
+      message.destinationName = "isadora"; // mesmo tópico que o Node-RED escuta
+      client.send(message);
+
+      status.textContent = "Medição enviada com sucesso!";
+    },
+    onFailure: () => {
+      status.textContent = "Erro ao conectar ao broker MQTT.";
+    }
+  });
+});
+</script>
+
 
 <?php include_once './include/footer.php'; ?>
