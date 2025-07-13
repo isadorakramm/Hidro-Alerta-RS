@@ -9,8 +9,18 @@ include_once './include/header.php';
     <label for="sensor">Sensor:</label>
 <select name="sensor_id" id="sensor" required>
   <option disabled selected>Carregando sensores...</option>
-</select>
+</select><br><br>
 
+    <label for="medicao">Valor da Medição (em metros):</label>
+    <input type="number" id="medicao" step="0.01" required><br><br>
+
+    <button type="submit">Enviar via MQTT</button>
+  </form>
+
+  <p id="status"></p>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.1.0/mqttws31.min.js"></script>
 <script>
 window.onload = async () => {
   const select = document.getElementById("sensor");
@@ -19,17 +29,13 @@ window.onload = async () => {
     const resp = await fetch("http://" + window.location.hostname + ":1880/dados/sensores");
     const sensores = await resp.json();
 
-    console.log("Sensores carregados:", sensores);
-
-    select.innerHTML = ""; // limpa "Carregando..."
+    console.log("Sensores carregados:", sensores); // ← pra verificar no console
 
     sensores.forEach(s => {
       const option = document.createElement("option");
       option.value = s.id;
       option.textContent = s.nome || `Sensor ${s.id}`;
       select.appendChild(option);
-
-      console.log("Adicionada opção:", option.outerHTML);
     });
 
     if (sensores.length === 0) {
@@ -41,7 +47,6 @@ window.onload = async () => {
   }
 };
 </script>
-
 
 
 <?php include_once './include/footer.php'; ?>
