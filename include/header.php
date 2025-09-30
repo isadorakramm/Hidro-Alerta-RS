@@ -13,15 +13,15 @@ $atualizado = date('YmdHis') . rand(0, 99999);
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 
-    <title><?php echo isset($titulo) ? $titulo : 'Estação Meteorológica'; ?></title>
+    <title><?php echo isset($titulo) ? $titulo : 'HidroAlerta RS'; ?></title>
 </head>
 <body class="inicio">
     <header>
-        <h1>Mini Estação Meteorológica</h1>
+        <h1>HidroAlerta RS</h1>
         <nav>
             <ul>
                 <li><a href="index.php">Página Inicial</a></li>
-                <li><a href="formulario.php">Formulário</a></li>
+                <!-- <li><a href="formulario.php">Formulário</a></li> -->
                 <li><a href="estacao.php">Estação</a></li>
             </ul>
         </nav>

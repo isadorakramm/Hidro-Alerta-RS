@@ -3,32 +3,12 @@
     include_once './include/header.php';
 ?>
 <body class="info">
-<<<<<<< HEAD
-    <main>
-        <div class="section_bloco">
-        <div class="txt_geral">
-            <h2>
-                Entendendo o fenômeno natural 3
-            </h2>
-            <p>Para uma análise mais aprofundada do fenômeno, é fundamental considerar diversos elementos que podem culminar em uma enchente. Como amplamente conhecido por aqueles que presenciaram o desastre natural ocorrido no Rio Grande do Sul durante o final de 2023 e inicio de 2024, o Ciclone Extratropical foi um dos principais causadores da tragédia. Contudo, outros fatores, sejam eles de origem humana ou ambiental, também desempenharam papéis significativos. </p>
-        </div>
-        <div class="container">
-            <button class="arrow-left control" aria-label="Previous image">◀</button>
-            <button class="arrow-right control" aria-label="Next Image">▶</button>
-            <div class="gallery-wrapper">
-                <div class="gallery">
-                    <a href="https://abrasco.org.br/enchentes-no-rio-grande-do-sul-desafios-para-a-saude-publica-em-meio-a-catastrofe/" target="_blank" class="item current-item">
-                        <img src="imagens/1.png" alt="Imagem da notícia">
-                        <div class="caption">Desafios para a saúde pública em meio à catástrofe</div>
-                    </a>
-=======
     <main style="padding: 2rem; max-width: 80%; margin: auto; flex: 1;">
         <section class="section_bloco">
             <article class="textoInfo">
                 <h2>Entendendo o fenômeno natural</h2>
                 <p>Para uma análise mais aprofundada do fenômeno, é fundamental considerar diversos elementos que podem culminar em uma enchente. Como amplamente conhecido por aqueles que presenciaram o desastre natural ocorrido no Rio Grande do Sul durante o final de 2023 e inicio de 2024, o Ciclone Extratropical foi um dos principais causadores da tragédia. Contudo, outros fatores, sejam eles de origem humana ou ambiental, também desempenharam papéis significativos. </p>
             </article>      
->>>>>>> 0c0c316d32a1f1da86578991c96119a4b754e295
 
             <div class="container">
                 <button class="arrow-left control" aria-label="Previous image">◀</button>
@@ -74,9 +54,9 @@
                     <p>A prova mais clara de que um desastre natural pode afetar o psicológico de uma pessoa é a existência de um termo chamado “Abobado da Enchente”. O termo surgiu no Rio Grande do Sul em 1941 e era utilizado com pessoas que foram diretamente afetadas pelas águas e sofreram de grandes perdas. Os ditos “abobados da enchente” eram pessoas que sofreram por tamanho trauma que as tornou totalmente apáticas e sem esperanças com a vida.</p>
                     <p>Os danos à infraestrutura dos locais afetados são inúmeros, principalmente quando temos em mente que durante as enchentes do final de 2023, as águas chegaram a cobrir 60% de alguns municípios. Como resultado, a altura e a intensidade das águas causaram devastação completa em várias estruturas das cidades impactadas, incluindo desmoronamentos de prédios, casas, pontes, estradas, e viadutos, entre outros. Os prejuízos estruturais são predominantemente tangíveis, porém têm impactos diretos significativos no dia a dia dos residentes e na economia local.</p>
                 </div>
-                <h2>Possíveis soluções</h2>
+                <h2>Redução de danos</h2>
                 <div class="bolhas">
-                    <p>Agora que passamos pelas causas e consequências das enchentes, podemos discutir algumas soluções hipotéticas.</p>
+                    <p>Agora que passamos pelas causas e consequências das enchentes, podemos discutir algumas maneiras de reduzir os danos.</p>
                     <p>Antes disso, é interessante apresentar como funciona o modelo UNDRO (United Nations Disaster Relief Organization), que visa avaliar a situação de cada local em busca de gerenciar os desastres naturais de uma forma organizada em cinco etapas: Identificação de riscos; Análise de riscos; Medidas de prevenção; Planejamento para emergências; Informações públicas e treinamento. O modelo UNDRO oferece uma abordagem estruturada para a preparação e gestão de crises ambientais, permitindo lidar com as situações de forma mais tranquila.</p>
                     <p>O modelo foi adaptado pela Defesa Civil Nacional (Brasília, 2007) e se compõe da seguinte forma:<br>1. Prevenção;<br>2. Preparação para Emergências e Desastres;<br>3. Resposta;<br>4. Resolução.</p>
                 </div>
