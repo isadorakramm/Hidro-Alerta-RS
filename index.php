@@ -8,7 +8,7 @@
                 Este projeto busca analisar causas históricas, geográficas e estatísticas das enchentes, alertar sobre impactos ambientais e na saúde pública e propor soluções. </p>
             <ul>
                 <li><a class="botao" href="info.php">Mais Informações</a></li>
-                <li><a class="botao" href="estacao.php">Estação Meteorológica</a></li>
+                <li><a class="botao" href="estacao.php">Mini Estação Meteorológica</a></li>
             </ul>
         </div>
     </main>
