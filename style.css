@@ -34,6 +34,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
 }
 
 body.inicio {
@@ -83,7 +84,7 @@ header a {
   text-decoration: none;
 }
   
-  header a::before {
+header a::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -126,30 +127,9 @@ footer a {
   font-size: small;
 
 }
-footer a::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  border-radius: 4px;
-  background-color: var(--branco);
-  bottom: 0;
-  left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform .3s ease-in-out;
-}
-  
-footer a:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
-}
-
-/*MAIN*/
 
 main {
   width: 100%;
-  height: 480px;
   flex: 2;
 }
 
@@ -161,10 +141,13 @@ main {
   margin: 2%;
 }
 
-.txt_geral, .container {
-    width: 45%;
-    margin: 0;
-    float: left;
+.textoInfo p {
+  background-color: rgba(255, 255, 255, 0.600);
+  border-radius: 20px;
+}
+
+.textoInfo, .container {
+    margin: 0;  
     padding: 2%;; 
 }
 
@@ -221,34 +204,40 @@ main {
 }
 
 .botao:hover::before {
-  opacity: 5;
+  opacity: 1;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
 }
 
+.bolhas {
+  background-color: rgba(255, 255, 255, 0.600);
+  border-radius: 20px;
+}
 
-.txt_geral h2 {
+article h2 {
   display: flex;
   background-color: var(--azul-1);
   background: linear-gradient(90deg, var(--azul-1) 28%, var(--azul-2) 73%);
-  padding: 3px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 3px 15px;  
   margin-bottom: 1%;
   border-radius: 20px;
   color: var(--branco);
   font-family: 'texto-2';
-  font-size:large;
+  font-size:larger;
 }
-.txt_geral p {
+article p {
   font-family: 'texto-2';
+  font-size: large;
   color: var(--azul-3);
   text-align: justify;
   padding: 1%;
+  margin: 1%;
 }
 
 /*CARROSSEL*/
 
 .container {
+  height: 300px;
+  width: 55%; 
   position: relative;
   padding: 15px;
   margin: 2% auto 3%;
@@ -346,7 +335,7 @@ main {
 @media (max-width: 768px) {
   .gallery a.item img {
     width: 100%;
-    height: 300px; /* Altura da moldura */
+    height: 100%; /* Altura da moldura */
     object-fit: contain; /* NÃO distorce a imagem */
     background-color: #f0f0f0; /* Cor de fundo da moldura */
     border-radius: 5px;
@@ -398,6 +387,12 @@ main {
   text-align: center;
 }
 
+.formulario p {
+  font-family: 'texto-1';
+  color: var(--azul-3);
+  text-align: center;
+}
+
 .formulario label {
   font-family: 'texto-2';
   color: var(--azul-3);
@@ -418,7 +413,7 @@ main {
   box-shadow: 0 0 5px var(--azul-1);
 }
 
-.formulario button {
+.formulario button {  
   font-family: 'texto-2';
   font-size: 16px;
   padding: 10px 20px;
@@ -433,4 +428,35 @@ main {
   display: flex;
   gap: 10px;
   width: 100%; /* Add this line */
+}
+
+.estacao-main {
+  padding: 2rem;
+  max-width: 1000px;
+  font-family: 'texto-2';
+  margin: auto;
+}
+
+.estacao-main h1 {
+  text-align: center;
+  background-color: var(--azul-1);
+  background: linear-gradient(90deg, var(--azul-1) 28%, var(--azul-2) 73%);
+  padding: 1%;
+  margin: 2%;
+  border-radius: 20px;
+  color: var(--branco);
+  font-size:x-large;
+}
+
+#mapaSensores {
+  height: 400px;
+  width: 100%;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+}
+
+#graficosContainer {
+  padding: 3%;
+  background-color: rgba(255, 255, 255, 0.902);
+  border-radius: 20px;
 }
